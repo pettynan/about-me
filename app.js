@@ -47,4 +47,6 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
 
   }
   console.log('User answered ' + numCorrect + ' out of 5 questions correctly.')
+
+  document.getElementById("p1").style.color = "black";
 }, 500);
