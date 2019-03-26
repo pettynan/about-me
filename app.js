@@ -10,32 +10,41 @@ var questionArray = [
   'Question 5'
 ];
 
+var yesList = ['yes', 'Yes', 'y', 'Y', 'true', 'True'];
+var noList = ['no', 'No', 'n', 'N', 'false', 'False']
+
 var userResponse = [];
 
-var answersArray = [
-  true,
-  'bool2',
-  'bool3',
-  'bool4',
-  'bool5'
+var answersArray = ['yes', 'no', 'yes', 'yes', 'no'
 ];
 
-for (i < 5 , i = 0 , i++) {
-  var userResponse[i] = prompt(questionArray[i]);
+for (var i = 0; i < 5; i++) {
+  userResponse[i] = prompt(questionArray[i]);
 
-  
+  if ((yesList.includes(userResponse[i]) && answersArray[i] === 'yes') || (noList.includes(userResponse[i]) && answersArray[i] === 'no') ) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
+
+    alert(questionArray[i] + ' You answered ' + userResponse[i] + '. You are correct!');
+    console.log('User answered Question ' + i + ' correctly.');
+    
+  } else {
+
+    alert(questionArray[i] + ' You answered ' + userResponse[i] + '. You are wrong. :(');
+    console.log('User answered Question ' + i + ' incorrectly.');
+
+  }
+
 }
 
 
 
   
-if (userName === 'peter') {
+// if (userName === 'peter') {
 
-  alert('Hey we\'ve got the same name. Welcome to the site, ' + userName + '!')
+//   alert('Hey we\'ve got the same name. Welcome to the site, ' + userName + '!')
 
-} else {
-  console.log('Welcome to the site ' + userName);
-}
+// } else {
+//   console.log('Welcome to the site ' + userName);
+// }
 
 
 
