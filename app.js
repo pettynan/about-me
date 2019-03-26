@@ -36,12 +36,12 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
 
       numCorrect ++;
 
-      alert(questionArray[i] + ' You answered ' + userResponse[i] + '. You are correct! You\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
+      alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are correct! \n \nYou\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
       console.log('User answered Question ' + i + ' correctly.');
       
     } else {
 
-      alert(questionArray[i] + ' You answered ' + userResponse[i] + '. You are wrong :( You\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
+      alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are wrong! :( \n \nYou\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
       console.log('User answered Question ' + i + ' incorrectly.');
 
     }
