@@ -31,16 +31,17 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
   for (var i = 0; i < 5; i++) {
     userResponse[i] = prompt(questionArray[i]);
 
-    if ((yesList.includes(userResponse[i]) && answersArray[i] === true ) || (noList.includes(userResponse[i]) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
+    if ((yesList.includes(userResponse[i]) && answersArray[i] === true ) || 
+        (noList.includes(userResponse[i]) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
 
       numCorrect ++;
 
-      alert(questionArray[i] + ' You answered ' + userResponse[i] + '. You are correct! You\'ve gotten ' + numCorrect + ' out of ' + (i + 1) + ' questions right.');
+      alert(questionArray[i] + ' You answered ' + userResponse[i] + '. You are correct! You\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
       console.log('User answered Question ' + i + ' correctly.');
       
     } else {
 
-      alert(questionArray[i] + ' You answered ' + userResponse[i] + '. You are wrong :( You\'ve gotten ' + numCorrect + ' out of ' + (i + 1) + ' questions right.');
+      alert(questionArray[i] + ' You answered ' + userResponse[i] + '. You are wrong :( You\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
       console.log('User answered Question ' + i + ' incorrectly.');
 
     }
