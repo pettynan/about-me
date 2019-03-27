@@ -14,11 +14,12 @@ var userResponse = []; // This array will be filled with the user's responses to
 var yesList = ['yes', 'y', 'true', 't']; // These are all responses accepted for 'true.'
 var noList = ['no', 'n', 'false', 'f']; // These are all responses accepted for 'false.'
 var numCorrect = 0; // Creates a variable which tracks the # of correct answers.
+var badAttempts = [0,0,0,0,0];
 
 setTimeout(function() { // Small delay so that the user can see the main screen before answering prompts.
   var userName = prompt('Hey, welcome to my about-me! My name is Peter, what should I call you?');
-  if (userName === 'Evan') {
-    alert('Hey Evan! Hope I don\'t need to resubmit the assignment this time D:');
+  if (userName.toLowerCase() === 'evan') {
+    alert('Hey ' + userName + '! Hope I don\'t need to resubmit the assignment this time D:');
   } else {
     alert('Nice to meet you, ' + userName + '!');
   }
@@ -26,25 +27,40 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
   console.log('User entered their username as \'' + userName + '\'.');
   alert('Next, I\'m going to ask you a few questions about myself, so you can get to know me.');
 
+
   for (var i = 0; i < 5; i++) {
-    userResponse[i] = prompt(questionArray[i]).toLowerCase();
+    userResponse[i] = prompt(questionArray[i]);
 
-    if ((yesList.includes(userResponse[i]) && answersArray[i] === true ) ||
-        (noList.includes(userResponse[i]) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
+    if(userResponse[i]) {
+      if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true ) ||
+          (noList.includes(userResponse[i].toLowerCase()) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
 
-      numCorrect ++;
+        numCorrect ++;
+        alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are correct! :) \n \nYou\'ve gotten ' + numCorrect + ' out of ' + (i + 1) + ' questions right.');
+        console.log('User answered Question ' + (i + 1) + ' correctly.');
 
-      alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are correct! \n \nYou\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
-      console.log('User answered Question ' + i + ' correctly.');
-    } else {
+      } else if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === false ) ||
+        (noList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true)) {
 
-      alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are wrong! :( \n \nYou\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
-      console.log('User answered Question ' + i + ' incorrectly.');
+        alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are incorrect! :( \n \nYou\'ve gotten ' + numCorrect + ' out of ' + (i + 1) + ' questions right.');
+        console.log('User answered Question ' + (i + 1) + ' incorrectly.');
 
+      } else {
+        if (badAttempts[i] > 2) {
+          alert('Why don\'t you try moving on?');
+        } else {
+          alert('Your response \'' + userResponse[i] + '\' was not a valid answer! Try answering with \'true\' or \'false\'!');
+          console.log('User entered an invalid response.');
+          badAttempts[i]++;
+          console.log(badAttempts[i]);
+          i--;
+        }
+      }
     }
+
 
   }
   console.log('User answered ' + numCorrect + ' out of 5 questions correctly.');
 
-  document.getElementById('p1').style.color = 'black';
+  document.getElementById('p1').style.visibility = 'visible';
 }, 500);

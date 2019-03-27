@@ -13,8 +13,9 @@ p {
   line-height: 1.5em;
 }
 #p1 {
-  color:pink;
+  
   font-weight: bold;
+  visibility: hidden;
 }
 footer {
   color: green;
