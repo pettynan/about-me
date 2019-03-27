@@ -11,8 +11,8 @@ var answersArray = [true, false, true, true, false]; // This array contains the 
 
 var userResponse = []; // This array will be filled with the user's responses to the questions.
 
-var yesList = ['yes', 'Yes', 'YES', 'y', 'Y', 'true', 'True', 't', 'T']; // These are all responses accepted for 'true.'
-var noList = ['no', 'No', 'NO', 'n', 'N', 'false', 'False', 'f', 'F']; // These are all responses accepted for 'false.'
+var yesList = ['yes', 'y', 'true', 't']; // These are all responses accepted for 'true.'
+var noList = ['no', 'n', 'false', 'f']; // These are all responses accepted for 'false.'
 var numCorrect = 0; // Creates a variable which tracks the # of correct answers.
 
 setTimeout(function() { // Small delay so that the user can see the main screen before answering prompts.
@@ -27,7 +27,7 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
   alert('Next, I\'m going to ask you a few questions about myself, so you can get to know me.');
 
   for (var i = 0; i < 5; i++) {
-    userResponse[i] = prompt(questionArray[i]);
+    userResponse[i] = prompt(questionArray[i]).toLowerCase();
 
     if ((yesList.includes(userResponse[i]) && answersArray[i] === true ) ||
         (noList.includes(userResponse[i]) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
