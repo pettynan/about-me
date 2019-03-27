@@ -54,13 +54,11 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
           badAttempts[i]++;
           console.log(badAttempts[i]);
           i--;
-        }
-      }
-    }
-
-
-  }
+        } // /if (wrong answer...)
+      } // /if (yesList...)
+    } // /if(userResponse[i])
+  } // /for
   console.log('User answered ' + numCorrect + ' out of 5 questions correctly.');
 
-  document.getElementById('p1').style.visibility = 'visible';
+  document.getElementById('m1').style.visibility = 'visible';
 }, 500);
