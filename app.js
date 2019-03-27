@@ -15,30 +15,27 @@ var yesList = ['yes', 'Yes', 'YES', 'y', 'Y', 'true', 'True', 't', 'T']; // Thes
 var noList = ['no', 'No', 'NO', 'n', 'N', 'false', 'False', 'f', 'F']; // These are all responses accepted for 'false.'
 var numCorrect = 0; // Creates a variable which tracks the # of correct answers.
 
-setTimeout(function() { // Small delay so that the user can see the main screen before answering prompts. 
+setTimeout(function() { // Small delay so that the user can see the main screen before answering prompts.
   var userName = prompt('Hey, welcome to my about-me! My name is Peter, what should I call you?');
   if (userName === 'Evan') {
-    
-    alert('Hey Evan! Hope I don\'t need to resubmit the assignment this time D:')
+    alert('Hey Evan! Hope I don\'t need to resubmit the assignment this time D:');
   } else {
-  
-  alert('Nice to meet you, ' + userName + '!');
+    alert('Nice to meet you, ' + userName + '!');
   }
 
-  console.log('User entered their username as \'' + userName + '\'.')
+  console.log('User entered their username as \'' + userName + '\'.');
   alert('Next, I\'m going to ask you a few questions about myself, so you can get to know me.');
 
   for (var i = 0; i < 5; i++) {
     userResponse[i] = prompt(questionArray[i]);
 
-    if ((yesList.includes(userResponse[i]) && answersArray[i] === true ) || 
+    if ((yesList.includes(userResponse[i]) && answersArray[i] === true ) ||
         (noList.includes(userResponse[i]) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
 
       numCorrect ++;
 
       alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are correct! \n \nYou\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
       console.log('User answered Question ' + i + ' correctly.');
-      
     } else {
 
       alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are wrong! :( \n \nYou\'ve gotten ' + numCorrect + '   out of ' + (i + 1) + ' questions right.');
@@ -47,7 +44,7 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
     }
 
   }
-  console.log('User answered ' + numCorrect + ' out of 5 questions correctly.')
+  console.log('User answered ' + numCorrect + ' out of 5 questions correctly.');
 
-  document.getElementById("p1").style.color = "black";
+  document.getElementById('p1').style.color = 'black';
 }, 500);
