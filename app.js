@@ -19,6 +19,36 @@ var numCorrect = 0; // Creates a variable which tracks the # of correct answers.
 var badAttempts = [0,0,0,0,0];
 var wrongAttempts = 0;
 
+function YesNoFunction(i){
+  if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true ) ||
+  (noList.includes(userResponse[i].toLowerCase()) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
+
+    numCorrect ++;
+    alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are correct! :) \n \nYou\'ve gotten ' + numCorrect + ' out of ' + (i + 1) + ' questions right.');
+    console.log('User answered Question ' + (i + 1) + ' correctly.');
+
+  } else if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === false ) ||
+(noList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true)) {
+
+    alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are incorrect! :( \n \nYou\'ve gotten ' + numCorrect + ' out of ' + (i + 1) + ' questions right.');
+    console.log('User answered Question ' + (i + 1) + ' incorrectly.');
+
+  } else {
+    if (badAttempts[i] > 2) {
+      alert('Why don\'t you try moving on?');
+    } else {
+      alert('Your response \'' + userResponse[i] + '\' was not a valid answer! Try answering with \'true\' or \'false\'!');
+      console.log('User entered an invalid response.');
+      badAttempts[i]++;
+      console.log(badAttempts[i]);
+      i--;
+    } // /if (wrong answer...)
+  } // /if (yesList...)
+
+
+}
+
+
 setTimeout(function() { // Small delay so that the user can see the main screen before answering prompts.
   var userName = prompt('Hey, welcome to my about-me! My name is Peter, what should I call you?');
   if (userName.toLowerCase() === 'evan') {
@@ -36,7 +66,11 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
 
     if(i < 5) {
       if(userResponse[i]) {
-        if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true ) ||
+
+        YesNoFunction(i);
+
+
+        /* if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true ) ||
             (noList.includes(userResponse[i].toLowerCase()) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
 
           numCorrect ++;
@@ -59,7 +93,7 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
             console.log(badAttempts[i]);
             i--;
           } // /if (wrong answer...)
-        } // /if (yesList...)
+        } // /if (yesList...)             */
       } // /if(userResponse[i])
     } else if (i < 6) {
       if (userResponse[i] === answersArray[i]) {
