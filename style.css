@@ -4,12 +4,15 @@ body {
 header {
   background-color: black;
   color: pink;
-  text-align: center;}
+  text-align: center;
+}
 h1 {
-  font-size: 2.5em;}
+  font-size: 2.5em;
+}
 h2 {
   font-size: 1.5em;
-  line-height: 2em;}
+  line-height: 2em;
+}
 p {
   line-height: 1.5em;
 }

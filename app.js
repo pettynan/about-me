@@ -16,33 +16,32 @@ var userResponse = []; // This array will be filled with the user's responses to
 var yesList = ['yes', 'y', 'true', 't']; // These are all responses accepted for 'true.'
 var noList = ['no', 'n', 'false', 'f']; // These are all responses accepted for 'false.'
 var numCorrect = 0; // Creates a variable which tracks the # of correct answers.
-var badAttempts = [0,0,0,0,0];
+var badAttempts = [0, 0, 0, 0, 0];
 var wrongAttempts = 0;
 
-
 //This function is for right answers
-function alertCorrect(i){
+function alertCorrect(i) {
   alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are correct! :) \n \nYou\'ve gotten ' + numCorrect + ' out of ' + (i + 1) + ' questions right.');
   console.log('User answered Question ' + (i + 1) + ' correctly.');
 }
 
 //This function is for wrong answers
-function alertIncorrect(i){
+function alertIncorrect(i) {
   alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are incorrect! :( \n \nYou\'ve gotten ' + numCorrect + ' out of ' + (i + 1) + ' questions right.');
   console.log('User answered Question ' + (i + 1) + ' incorrectly.');
 }
 
 //This is the function for yes/no questions.
-function yesNoFunction(i){
+function yesNoFunction(i) {
 
-  if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true ) ||
-  (noList.includes(userResponse[i].toLowerCase()) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
+  if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true) ||
+    (noList.includes(userResponse[i].toLowerCase()) && answersArray[i] === false)) { //If the user answered some form of 'yes' and the answer was 'yes', or if the user answered some form of 'no' and the answer was 'no'.
 
-    numCorrect ++;
+    numCorrect++;
     alertCorrect(i);
 
-  } else if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === false ) ||
-(noList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true)) {
+  } else if ((yesList.includes(userResponse[i].toLowerCase()) && answersArray[i] === false) ||
+    (noList.includes(userResponse[i].toLowerCase()) && answersArray[i] === true)) {
 
     alertIncorrect(i);
   } else {
@@ -56,12 +55,11 @@ function yesNoFunction(i){
       i--;
     } // /if (wrong answer...)
   } // /if (yesList...)
-
 }
 
 //This function guesses age
-function guessAge(i){
-  for(wrongAttempts=0; wrongAttempts<4; wrongAttempts++){
+function guessAge(i) {
+  for (wrongAttempts = 0; wrongAttempts < 4; wrongAttempts++) {
     userResponse[i] = prompt(questionArray[i]);
     if (userResponse[i] === answersArray[i]) {
       numCorrect++;
@@ -86,8 +84,8 @@ function guessAge(i){
 }
 
 //This function guesses the states I've been to.
-function guessState(i){
-  for(wrongAttempts=0; wrongAttempts<6; wrongAttempts++){
+function guessState(i) {
+  for (wrongAttempts = 0; wrongAttempts < 6; wrongAttempts++) {
     userResponse[i] = prompt(questionArray[i]);
     if (answersArray[i].includes(userResponse[i].toLowerCase())) {
       numCorrect++;
@@ -104,12 +102,10 @@ function guessState(i){
       alert(questionArray[i] + ' You answered ' + userResponse[i] + '.\n\nYou are incorrect! Keep trying, you have ' + (5 - wrongAttempts) + ' tries left!');
 
     }
-
-
   }
 }
 //This is where the functions will run.
-setTimeout(function() { // Small delay so that the user can see the main screen before answering prompts.
+setTimeout(function () { // Small delay so that the user can see the main screen before answering prompts.
   var userName = prompt('Hey, welcome to my about-me! My name is Peter, what should I call you?');
   if (userName.toLowerCase() === 'evan') {
     alert('Hey ' + userName + '! Hope I don\'t need to resubmit the assignment this time D:');
@@ -124,14 +120,14 @@ setTimeout(function() { // Small delay so that the user can see the main screen 
   for (var i = 0; i < 7; i++) {
 
     //These are the yes/no questions.
-    if(i < 5) {
+    if (i < 5) {
       userResponse[i] = prompt(questionArray[i]);
-      if(userResponse[i]) {
+      if (userResponse[i]) {
 
         yesNoFunction(i);
       }
       //This is the age guessing question.
-    } else if (i <6) {
+    } else if (i < 6) {
       guessAge(i);
 
       //This is the state question.
